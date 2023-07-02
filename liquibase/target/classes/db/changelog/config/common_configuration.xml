@@ -1,0 +1,13 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet id="common_configuration_1" author="rakeshgupta">
+        <sql>
+            SET TIME ZONE 'UTC';
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
