@@ -1,9 +1,10 @@
+FROM openjdk:11-slim
+WORKDIR /
+
 FROM maven:3.6.3-jdk-11-slim as build
 COPY . /usr/src/app/
 WORKDIR /usr/src/app/
-RUN mvn -f /usr/src/app/pom.xml package -Dmaven.test.skip=false
+RUN mvn clean install
 
-FROM openjdk:11-slim
-WORKDIR /
-#COPY --from=build /usr/src/app/app-service/target/app-service*.jar /app-service.jar
-CMD java -jar app-service-2.7.13.jar
+#COPY --from=build /usr/src/app/target/app-service*.jar /app-service.jar
+CMD java -jar target/app-service-2.7.13.jar
