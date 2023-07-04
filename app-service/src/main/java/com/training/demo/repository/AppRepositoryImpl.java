@@ -17,6 +17,7 @@ public class AppRepositoryImpl implements AppRepository {
     @Override
     public List<Employee> findAll() {
         String sql = "select * from employee";
+        log.info("fetching data");
         return jdbcTemplate.query(sql, new EmployeeRowMapper());
     }
 
@@ -25,6 +26,7 @@ public class AppRepositoryImpl implements AppRepository {
         String sql = "insert into employee (id,firstname,lastname,department) values(?,?,?,?)";
         try {
             jdbcTemplate.update(sql, employee.getId(),employee.getFirstName(), employee.getLastName(), employee.getDepartment());
+            log.info("data saved successfully");
         }
         catch(Exception e){
             log.error("Error in employee insertion",e);
